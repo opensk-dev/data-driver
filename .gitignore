@@ -1,0 +1,7 @@
+/[Bb]uild/
+/[Oo]ut/
+
+/.vs/
+/.vscode/
+/.idea/
+/cmake-*/
