@@ -1,0 +1,3 @@
+
+add_executable(sk_data_examples_manual_read manual_read_data.cpp)
+target_link_libraries(sk_data_examples_manual_read opensk::data)
