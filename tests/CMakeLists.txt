@@ -1,3 +1,3 @@
 
-add_executable(smoke_test smoke.cxx)
-target_link_libraries(smoke_test PRIVATE opensk::data)
+add_executable(sk_data_smoke_test smoke_test.cxx)
+target_link_libraries(sk_data_smoke_test PRIVATE opensk::data)

@@ -2,23 +2,32 @@
 add_library(sk_data_driver SHARED)
 add_library(opensk::data::driver ALIAS sk_data_driver)
 
+set(sk_data_driver_include_dir "include/opensk/data")
+
 include(GenerateExportHeader)
 
-set(sk_data_export_file_name include/opensk/data/export_shared.h)
-generate_export_header(sk_data_driver EXPORT_FILE_NAME ${sk_data_export_file_name})
+generate_export_header(sk_data_driver EXPORT_FILE_NAME "${sk_data_driver_include_dir}/export_shared.hpp")
+configure_file("src/config.hpp.in" "${sk_data_driver_include_dir}/config.hpp")
+
+set(sk_data_driver_gen_headers
+        "${CMAKE_CURRENT_BINARY_DIR}/${sk_data_driver_include_dir}/export_shared.hpp"
+        "${CMAKE_CURRENT_BINARY_DIR}/${sk_data_driver_include_dir}/config.hpp"
+        )
 
 set(sk_data_driver_public_headers
-        include/opensk/data/export.hpp
-        include/opensk/data/driver.hpp)
+        "${sk_data_driver_include_dir}/export.hpp"
+        "${sk_data_driver_include_dir}/driver.hpp"
+        )
 
 set(sk_data_driver_sources
-        ${sk_data_driver_public_headers}
-        src/driver.cpp)
+        "${sk_data_driver_public_headers}"
+        "src/driver.cpp"
+        )
 
-source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${sk_data_driver_sources})
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${sk_data_driver_sources})
 
-list(APPEND sk_data_driver_public_headers "${CMAKE_CURRENT_BINARY_DIR}/${sk_data_export_file_name}")
-list(APPEND sk_data_driver_sources "${CMAKE_CURRENT_BINARY_DIR}/${sk_data_export_file_name}")
+list(APPEND sk_data_driver_public_headers ${sk_data_driver_gen_headers})
+list(APPEND sk_data_driver_sources ${sk_data_driver_gen_headers})
 
 target_sources(sk_data_driver PRIVATE ${sk_data_driver_sources})
 

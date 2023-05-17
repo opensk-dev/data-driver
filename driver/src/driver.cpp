@@ -3,8 +3,8 @@
 //
 
 # include <opensk/data/driver.hpp>
-# include <iostream>
+# include <opensk/data/config.hpp>
 
-void sk_data_say_hello() {
-    std::cout << "hello, opensk!";
+const char* sk_data_version_string() {
+    return SK_DATA_VERSION_STRING;
 }

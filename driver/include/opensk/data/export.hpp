@@ -5,6 +5,6 @@
 # ifndef SK_DATA_DRIVER_EXPORT_HPP_
 # define SK_DATA_DRIVER_EXPORT_HPP_
 
-#  include <opensk/data/export_shared.h>
+# include <opensk/data/export_shared.hpp>
 
 # endif // SK_DATA_DRIVER_EXPORT_HPP_
