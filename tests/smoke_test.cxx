@@ -1,7 +1,7 @@
-# include <opensk/data/driver.hpp>
 # include <iostream>
+# include <opensk/data/driver.hpp>
 
 int main() {
-    std::cout << "opensk data version: " << sk_data_version_string() << '\n';
+    std::cout << "sk data version: " << sk::data::version_string() << '\n';
     return 0;
 }

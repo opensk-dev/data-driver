@@ -13,15 +13,15 @@ int main() {
     char* bytes = reinterpret_cast<char*>(&value);
     while (file && k < 1000) {
         file.read(bytes, 4);
-//        std::cout << value << " | ";
-//        for (int i = 0; i < 4; ++i) {
-//            std::cout << static_cast<unsigned int>(bytes[i]) << ' ';
-//        }
-//        std::cout << "| ";
+        std::cout << value << " | ";
+        for (int i = 0; i < 4; ++i) {
+            std::cout << static_cast<unsigned int>(bytes[i]) << ' ';
+        }
+        std::cout << "| ";
         for (int i = 0; i < 4; ++i) {
             std::cout << bytes[i];
         }
-//        std::cout << '\n';
+        std::cout << '\n';
         ++k;
     }
     std::cout << "total rows count: " << k << '\n';

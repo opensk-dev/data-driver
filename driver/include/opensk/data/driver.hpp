@@ -5,12 +5,10 @@
 # ifndef SK_DATA_DRIVER_HPP
 # define SK_DATA_DRIVER_HPP
 
-# include <opensk/data/export.hpp>
+namespace sk::data {
 
-extern "C" {
+const char* version_string();
 
-SK_DATA_DRIVER_EXPORT const char* sk_data_version_string();
-
-};
+}
 
 # endif // SK_DATA_DRIVER_HPP

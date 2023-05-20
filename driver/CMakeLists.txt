@@ -1,6 +1,6 @@
 
-add_library(sk_data_driver SHARED)
-add_library(opensk::data::driver ALIAS sk_data_driver)
+add_library(sk_data_driver STATIC)
+add_library(opensk::data ALIAS sk_data_driver)
 
 set(sk_data_driver_include_dir "include/opensk/data")
 
@@ -17,6 +17,7 @@ set(sk_data_driver_gen_headers
 set(sk_data_driver_public_headers
         "${sk_data_driver_include_dir}/export.hpp"
         "${sk_data_driver_include_dir}/driver.hpp"
+        "${sk_data_driver_include_dir}/driver_api.hpp"
         )
 
 set(sk_data_driver_sources
@@ -30,8 +31,6 @@ list(APPEND sk_data_driver_public_headers ${sk_data_driver_gen_headers})
 list(APPEND sk_data_driver_sources ${sk_data_driver_gen_headers})
 
 target_sources(sk_data_driver PRIVATE ${sk_data_driver_sources})
-
-target_link_libraries(sk_data_driver INTERFACE Boost::boost)
 
 target_include_directories(
         sk_data_driver
@@ -51,3 +50,9 @@ set_target_properties(
         SOVERSION ${PROJECT_VERSION_MAJOR}
         VERSION ${PROJECT_VERSION}
 )
+
+# Boost REQUIRED COMPONENTS:
+# - iostreams: for Driver files input-output
+# - dll (header-only): for Driver load
+find_package(Boost 1.82 REQUIRED COMPONENTS iostreams)
+target_link_libraries(sk_data_driver INTERFACE Boost::boost)

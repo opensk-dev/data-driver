@@ -5,6 +5,10 @@
 # include <opensk/data/driver.hpp>
 # include <opensk/data/config.hpp>
 
-const char* sk_data_version_string() {
+namespace sk::data {
+
+const char* version_string() {
     return SK_DATA_VERSION_STRING;
 }
+
+} // sk::data

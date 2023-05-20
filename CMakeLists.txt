@@ -22,13 +22,7 @@ if(${PROJECT_IS_TOP_LEVEL})
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SK_DATA_OUTPUT_DIRECTORY})
 endif()
 
-# Boost REQUIRED COMPONENTS:
-# - iostreams: for driver files input-output
-# - dll (header-only): for driver load
-find_package(Boost 1.82 REQUIRED COMPONENTS iostreams)
-
 add_subdirectory(driver)
-add_subdirectory(interface)
 
 if(SK_DATA_BUILD_TESTS)
     add_subdirectory(tests)
