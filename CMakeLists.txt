@@ -8,7 +8,7 @@ project(
 
 option(SK_DATA_BUILD_TESTS "Build tests for opensk_data_driver" ${PROJECT_IS_TOP_LEVEL})
 option(SK_DATA_BUILD_EXAMPLES "Build examples for opensk_data_driver" ${PROJECT_IS_TOP_LEVEL})
-option(SK_DATA_INSTALL_TEST_DATA "Copy test files" ${PROJECT_IS_TOP_LEVEL})
+option(SK_DATA_INSTALL_TEST_DATA "Copy data files" ${PROJECT_IS_TOP_LEVEL})
 
 # Do not export all functions (for GCC and Clang)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
@@ -22,18 +22,7 @@ if(${PROJECT_IS_TOP_LEVEL})
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SK_DATA_OUTPUT_DIRECTORY})
 endif()
 
-# Boost REQUIRED COMPONENTS:
-# - iostreams: for driver files input-output
-# - dll (header-only): for load driver
-find_package(Boost 1.82 REQUIRED COMPONENTS iostreams)
-
 add_subdirectory(driver)
-add_subdirectory(interface)
-
-if(SK_DATA_INSTALL_TEST_DATA)
-    file(GLOB SK_DATA_TEST_DATA_FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/*)
-    file(COPY ${SK_DATA_TEST_DATA_FILES} DESTINATION ${SK_DATA_OUTPUT_DIRECTORY}/data/)
-endif()
 
 if(SK_DATA_BUILD_TESTS)
     add_subdirectory(tests)
@@ -41,4 +30,9 @@ endif()
 
 if(SK_DATA_BUILD_EXAMPLES)
     add_subdirectory(examples)
+endif()
+
+if(SK_DATA_INSTALL_TEST_DATA)
+    file(GLOB SK_DATA_TEST_DATA_FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/*)
+    file(COPY ${SK_DATA_TEST_DATA_FILES} DESTINATION ${SK_DATA_OUTPUT_DIRECTORY}/data/)
 endif()

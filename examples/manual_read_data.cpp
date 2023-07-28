@@ -10,8 +10,8 @@ int main() {
     std::filesystem::path filepath = "./data/Skyrim.esm";
     auto file = std::ifstream(filepath, std::ios::binary);
     unsigned int k = 0, value;
-    char *bytes = reinterpret_cast<char *>(&value);
-    while (file && k < 100) {
+    char* bytes = reinterpret_cast<char*>(&value);
+    while (file && k < 1000) {
         file.read(bytes, 4);
         std::cout << value << " | ";
         for (int i = 0; i < 4; ++i) {
@@ -19,7 +19,7 @@ int main() {
         }
         std::cout << "| ";
         for (int i = 0; i < 4; ++i) {
-            std::cout << bytes[i] << ' ';
+            std::cout << bytes[i];
         }
         std::cout << '\n';
         ++k;
