@@ -1,3 +1,9 @@
 
 add_executable(sk_data_manual_read_example manual_read_data.cpp)
-target_link_libraries(sk_data_manual_read_example opensk::data)
+target_compile_features(sk_data_manual_read_example PUBLIC cxx_std_20)
+
+add_executable(sk_data_memory_mapped_files_example memory_mapped_files.cpp)
+target_compile_features(sk_data_memory_mapped_files_example PUBLIC cxx_std_20)
+
+find_package(Boost 1.82 REQUIRED)
+target_link_libraries(sk_data_memory_mapped_files_example Boost::boost)
