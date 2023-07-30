@@ -20,9 +20,9 @@ set(sk_data_output_dir "${CMAKE_CURRENT_BINARY_DIR}/out")
 
 # Setup binary folder
 if(${PROJECT_IS_TOP_LEVEL})
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${SK_DATA_OUTPUT_DIRECTORY}/lib)
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SK_DATA_OUTPUT_DIRECTORY})
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SK_DATA_OUTPUT_DIRECTORY})
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${sk_data_output_dir}/lib)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${sk_data_output_dir})
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${sk_data_output_dir})
 endif()
 
 add_subdirectory(driver)
