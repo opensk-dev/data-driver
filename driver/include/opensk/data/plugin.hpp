@@ -2,13 +2,13 @@
 // Created by asuka on 02.07.2023.
 //
 
-# ifndef SK_DATA_PLUGIN_HPP_
-# define SK_DATA_PLUGIN_HPP_
+#ifndef SK_DATA_PLUGIN_HPP
+#define SK_DATA_PLUGIN_HPP
 
 namespace sk::data {
 
 class Plugin {
-public:
+  public:
     Plugin() = default;
     ~Plugin() = default;
 
@@ -19,6 +19,6 @@ public:
     Plugin& operator=(Plugin&&) noexcept = default;
 };
 
-} // sk::data
+}// namespace sk::data
 
-# endif // SK_DATA_PLUGIN_HPP_
+#endif// SK_DATA_PLUGIN_HPP

@@ -70,5 +70,5 @@ install(
     LIBRARY COMPONENT sk_data_driver NAMELINK_COMPONENT sk_data_driver_dev
     ARCHIVE COMPONENT sk_data_driver_dev
     PUBLIC_HEADER COMPONENT sk_data_driver_dev
-        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/opensk/data/"
+    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/opensk/data/"
 )

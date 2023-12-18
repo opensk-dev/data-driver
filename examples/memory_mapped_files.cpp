@@ -2,10 +2,10 @@
 // Created by asuka on 26.05.2023.
 //
 
-# include <boost/interprocess/file_mapping.hpp>
-# include <boost/interprocess/mapped_region.hpp>
+#include <boost/interprocess/file_mapping.hpp>
+#include <boost/interprocess/mapped_region.hpp>
 
-# include <iostream>
+#include <iostream>
 
 int main() {
     auto mode = boost::interprocess::read_only;

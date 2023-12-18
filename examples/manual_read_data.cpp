@@ -2,9 +2,9 @@
 // Created by asuka on 15.05.2023.
 //
 
-# include <filesystem>
-# include <fstream>
-# include <iostream>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
 
 int main() {
     std::filesystem::path filepath = "./data/Skyrim.esm";
